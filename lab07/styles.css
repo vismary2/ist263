@@ -1,0 +1,38 @@
+
+nav {
+    background-color: #E0E1DD;
+    padding: 10px;
+}
+
+nav {
+    margin-bottom: 30px
+}
+
+nav a{
+    color: #415A77
+}
+
+nav a:hover{
+    background-color: #98c1d9;
+}
+
+body {
+    background-color: #e7ecef;
+}
+
+
+body h1{
+    color: #274c77;
+}
+
+body h2 {
+    color: black;
+}
+
+body p{
+    color: #274c77;
+}
+
+.evenrow {
+    background-color: #598392;
+}
