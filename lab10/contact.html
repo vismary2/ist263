@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .row1{
+            display:flex; 
+            background-color: whitesmoke; 
+            border-radius: 1em; 
+            padding: 20px;
+        }
+        .row1, .row2 {margin: 20px;}
+
+        .address, .email-linkedin{
+            margin: 20px;
+        }
+
+        .row2{
+            display: flex; 
+            background-color: whitesmoke; 
+            border-radius: 1em;
+            padding: 20px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .forms, .address{
+            margin: 20px;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <p>
+        <a href="index.html">Home</a> | 
+        <a href="skills.html">Skills</a> | 
+        <a href="contact.html">Contact</a>
+        </p>
+    </nav>    
+    <h1>Contact</h1>  
+    <div class="row1"> 
+        <div class="address">
+            Vismary Pena<br>
+            601 Comstock Ave<br>
+            Syracuse, NY 13244<br>
+            <br><br>
+        </div>
+       <div class="email-linkedin">
+            <a href="mailto:vipena@syr.edu"> Vismary Pena Email</a>
+            <br><br>
+            <a href="https://www.linkedin.com/in/vismary-pena/" target="_blank">
+                <img src="../images/sized_li_logo.png" alt="LinkedIn Logo"> My LinkedIn Profile</a>
+             <br>
+
+       </div>
+    </div>
+
+    <div class="row2">
+        <div class="forms">
+            <form action="https://formspree.io/f/xqadvnen" method="POST">
+                <h2>What is your first and last name?</h2>
+                <label for="fname">First Name: </label>  
+                <input type="text" id="fname" name="fname">
+                <label for="lname">Last Name: </label>
+                <input type="text" id="lname" name="lname">
+
+                <h2>How will you contact me?</h2>
+                <input type="radio" id="email" name="contact_info" value="Email">
+                <label for="email">Email</label><br>
+                <input type="radio" id="linkedin" name="contact_info" value="LinkedIn">
+                <label for="linkedin">LinkedIn</label>
+
+                <h2>Reason for messaging me:</h2>
+                <label for="message_reason"></label><br>
+                <textarea id="message_reason" name ="reason" rows="4" cols="30" placeholder="Add Reason Here"></textarea>
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <!-- <div class="map"> -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2916.075321333364!2d-76.1295169!3d43.03984669999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d9f30b2a57071f%3A0x407b53993e9e7ebe!2sDellPlain%20Hall!5e0!3m2!1sen!2sus!4v1757604945626!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- </div> -->
+
+    </div>
+
+</body>
+
+</html>
