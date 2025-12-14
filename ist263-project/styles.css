@@ -11,13 +11,76 @@
         }
     
 }
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        background: white;
+        padding: 60px 40px;
+        margin: 60px auto;
+        max-width: 1100px;
+        border-radius: 14px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        flex-wrap: wrap; 
+    }
 
+    .hero-text {
+        flex: 2;
+        min-width: 280px;
+    }
+
+    .hero-text h2 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-text p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    .hero-cta {
+        flex: 1.2;
+        background: #E6ECE9;
+        padding: 25px;
+        border-radius: 14px;
+        text-align: left;
+        min-width: 260px;
+    }
+
+    .hero-cta h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: #2D9CDB;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 1rem;
+        text-decoration: none;
+        margin-top: 14px;
+        transition: 0.25s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #1B7DB0;
+        transform: translateY(-2px);
+    }
+
+    
     header{
-        background-color: #cad2c5;
+        background-color: #EEEEEE;
+        padding: 18px 40px;
         display: flex; 
         align-items: center;
         gap: 15px;
         justify-content: space-between;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
     
     .logo {
@@ -32,23 +95,59 @@
         gap: 10px;
         padding: 20px;
     }
-
+    .sekuya-regular {
+    font-family: "Sekuya", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    }
+    .site-title {
+        font-family: "Sekuya", system-ui;
+        font-weight: 400;
+    }
+    h1, h2, h3, h4 {
+        /* font-family: 'Inter', sans-serif; */
+        font-family: 'Poppins', sans-serif; 
+        font-weight: 600;
+        color: #111;
+    }
     body {
-        background-color: #dad7cd;
+        background-color: #edf6f9;
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color:#222;
+        line-height: 1.6;
+        padding: 10px;
     }
 
     nav {
         font-family: "Anton", static;
         padding: 50px;
+        display: flex;
     }
-    nav a:hover {
-        background-color: #dad7cd;
+    
+    .navigation{
+        display: flex;
+        gap: 28px
     }
-    nav a {
-        color: #344e41;
+   
+    .navigation a{
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        color: #333;
+        padding: 4px 0;
+        transition: color 0.2s ease;
     }
 
+    .navigation a:hover {
+        color: #2D9CDB;
+    }
 
+    nav {
+        padding: 0;
+    }
+   
 
 @media (max-width: 450px) {
     .container {
@@ -76,12 +175,12 @@
 
 @media (max-width: 768px) {
 
-    /* Hamburger appears */
+    /* Make the hamburger pop up */
     .hamburger {
         display: block;
     }
 
-    /* Hide desktop nav by default */
+    /* Hide the regular nav */
     nav.navigation {
         display: none;
         flex-direction: column;
@@ -102,23 +201,23 @@
     }
 
     nav span {
-        display: none; /* hide the | separators */
+        display: none; 
     }
 
     header {
         flex-wrap: wrap;
     }
 
-    /* ----------------- Featured Cards ----------------- */
+    /* The Cards */
     #featured-images {
         flex-direction: column;
     }
 
     .card {
-        width: 100%;
+        min-width: 100%;
     }
 
-    /* ----------------- About Me Section ---------------- */
+    /* The About */
     .about-section {
         width: 100%;
         flex-direction: column;
@@ -134,5 +233,19 @@
     #about-image {
         width: 200px;
         height: 200px;
+    }
+
+    /* Tips Page */
+    .container {
+        flex-direction: column;
+    }
+    .flex-item {
+        flex: 1 1 100%;
+    }
+    .intro{
+        padding: 0 16px;
+    }
+    .bottom-container {
+        margin: 20px auto;
     }
 }

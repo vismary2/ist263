@@ -6,28 +6,125 @@
     <title>Form</title>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fjalla+One&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fjalla+One&family=Oswald:wght@200..700&family=Sekuya&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../project_images/favicon.ico">
 
     <style>
+        .form{
+            align-items: center;
+            background-color: white;
+            border-radius: 20px;
+            padding: 15px;
+            margin-top: 20px;
+            justify-content: space-around;
+        }
 
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            width: 300px;
+            height: 200px;
+            text-align: center;
+            padding: 20px;
+            margin: 50px auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            color: #777;
+            }
+
+        #drop-area.highlight {
+            background-color: #f0f0f0;
+            border-color: #007bff;
+        }
     </style>
 </head>
 
 <body>
-    <form action="https://formspree.io/f/xqadvnen" method="POST"></form>
-        <h2>What is your first and last name?</h2>
-        <label for="fname">First Name: </label>  
-        <input type="text" id="fname" name="fname">
-        <label for="lname">Last Name: </label>
-        <input type="text" id="lname" name="lname">
+    <header>
+        <div class="branding">
+            <!-- <img class="logo" src="../project_images/logo-travel-blog.png" alt="Logo"> -->
+            <h1 class="site-title">GateReady</h1>
+        </div> 
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <nav class="navigation">
+            <a href="index.html">HOME</a> 
+            <a href="my-destinations.html">MY DESTINATIONS</a> 
+            <a href="tips.html">TIPS & RESOURCES</a> 
+        </nav>
+    </header>
 
-        <h2>Add Your Story Here</h2>
-        <label for="story-line"></label><br>
-        <textarea id="story-line" name ="story" rows="4" cols="30" placeholder="Add Story Here"></textarea>
+    <div class="form">
+        <form action="https://formspree.io/f/xqadvnen" method="POST">
+            <h2>What is your First and Last name?</h2>
+            <label for="fname">First Name: </label>  
+            <input type="text" id="fname" name="fname">
+            <br>
+            <br>
+            <label for="lname">Last Name: </label>
+            <input type="text" id="lname" name="lname">
 
-        <div id="drop-zone">
-            <h2>Drag and drop files here, or click to browse.</h2>
-            <input type="file" id="fileInput" multiple style="display: none;">
-        </div>
+            <h2>Add Your Story Here</h2>
+            <label for="story-line"></label><br>
+            <textarea id="story-line" name ="story" rows="10" cols="50" placeholder="Tell us who you are!"></textarea>
+
+            <h2 class="drop-title">Upload Your Pictures Here</h2>
+            <div id="drop-area">
+                <p class="drop-subtitle">Drag and drop files here, or click to browse.</h2>
+                <input type="file" id="file-input" multiple style="display: none;">
+            </div>
+        </form>
+    </div>
+    <script>
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('file-input');
+
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+        document.body.addEventListener(eventName, preventDefaults, false); // Prevent default for entire page
+        });
+
+        function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        }
+
+        // Highlight drop area when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => dropArea.classList.add("highlight"));
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => dropArea.classList.remove("highlight"));
+        });
+
+       // Handle dropped files
+        dropArea.addEventListener("drop", e => {
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        // Click-to-open FIXED
+        dropArea.addEventListener("click", () => {
+            fileInput.click(); // This works now because the IDs match
+        });
+
+        fileInput.addEventListener("change", e => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            for (const file of files) {
+                console.log("Uploaded:", file.name);
+            }
+        }
+    </script>
 </body>
 
 
