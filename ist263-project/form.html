@@ -75,6 +75,22 @@
             background-color: #f0f0f0;
             border-color: #007bff;
         }
+
+        .drop-subtitle, .drop-label {
+            color: #1B1B1B;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 
     <script>
@@ -92,7 +108,7 @@
         <div class="branding">
             <h1 class="site-title">GateReady</h1>
         </div> 
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <button class="hamburger" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
         <nav class="navigation">
             <a href="index.html">HOME</a> 
             <a href="my-destinations.html">DESTINATIONS</a> 
@@ -115,13 +131,16 @@
             <input type="text" id="lname" name="lname">
 
             <h2>Add Your Story Here</h2>
-            <label for="story-line"></label><br>
+            <label for="story-line">Your Story:</label><br>
             <textarea id="story-line" name ="story" rows="10" cols="50" placeholder="Tell us who you are!"></textarea>
 
             <h2 class="drop-title">Upload Your Pictures Here</h2>
             <div id="drop-area">
-                <p class="drop-subtitle">Drag and drop files here, or click to browse.</p>
-                <input type="file" id="file-input" multiple style="display: none;">
+                <p id="drop-instructions" class="sr-only">Drag and drop files here, or click to browse.</p>
+                <input type="file" id="file-input" multiple aria-label = "Upload your pictures" aria-describedby="drop-instructions;">
+                <div class="drop-box">
+                    <p class="drop-subtitle"> Drag and drop files here, or click to browse</p>
+                </div>
             </div>
 
             <br><br>
